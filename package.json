@@ -1,0 +1,35 @@
+{
+  "name": "project10_oop",
+  "version": "1.0.0",
+  "description": "A simple OOP Practice Project utilizing Typescript and NodeJS.",
+  "type": "module",
+  "main": "index.js",
+  "dependencies": {    
+    "chalk": "^5.2.0",
+    "chalk-animation": "^2.0.3",  
+    "figlet": "^1.5.2",   
+    "gradient-string": "^2.0.2",   
+    "inquirer": "^9.1.4"    
+  },
+  "devDependencies": {
+    "@types/chalk-animation": "^1.6.1",
+    "@types/figlet": "^1.5.5",
+    "@types/gradient-string": "^1.1.2",
+    "@types/inquirer": "^9.0.3",
+    "@types/node": "^18.13.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HamzaAhmedSheikh/project10_oop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HamzaAhmedSheikh/project10_oop/issues"
+  },
+  "homepage": "https://github.com/HamzaAhmedSheikh/project10_oop#readme"
+}
