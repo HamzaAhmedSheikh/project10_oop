@@ -6,6 +6,9 @@ import gradient from 'gradient-string';
 import chalkAnimation from 'chalk-animation';
 import figlet from 'figlet';
 
+import Person from './Person.js';
+import Student from './Student.js';
+
 const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 
 async function welcome() {
@@ -30,3 +33,57 @@ async function welcome() {
 }
 
 await welcome()
+
+function isNumber(str: string): boolean {    
+    const possibly_a_number: number = parseInt(str);       
+    const isNum: boolean = !isNaN(possibly_a_number);      
+    return isNum;
+}
+
+async function userInputName() {
+    const userName = await inquirer.prompt({
+       type: "input",
+       name: "user_name",
+       message: "What is your name:" 
+    })
+ 
+    if(userName.user_name) {
+     if(userName.user_name !== "") {
+        let studentName: string = userName["user_name"];
+         const student1: Student = new Student()
+         student1.Name = studentName
+         console.log(`Your Name is: ${student1.Name} and your personality is ${student1.getPersonality()}`)        
+     } else {
+         console.log(chalk.red("Please enter a number"))
+     }   
+    }
+ }
+
+async function MainFn() {
+   try {
+     const answer = await inquirer.prompt({
+        name: 'select_a_number',
+        type: 'input',
+        message: chalk.blue("Type '1' if you like to talk to others or Type '2' If you prefer to remain anonymous:"),        
+      });
+    
+     if(answer.select_a_number !== "") {
+        const isNum: boolean = isNumber(answer["select_a_number"])
+        console.log(typeof isNum);
+        
+                if(isNum) {
+                    const person : Person  = new Person()
+                    person.askQuestion(answer["select_a_number"])                   
+                    await userInputName()
+                }
+                else{
+                    console.log(chalk.red("Please enter a number."))
+                }
+     }
+    
+   } catch (error) {
+     console.log('Please enter a number.');   
+   }  
+}
+
+await MainFn()
